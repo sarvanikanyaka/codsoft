@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class AcademicPerformanceEvaluator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter number of subjects: ");
+        int subjectCount = scanner.nextInt();
+
+        int[] scores = new int[subjectCount];
+        int accumulatedMarks = 0;
+
+        for (int i = 0; i < subjectCount; i++) {
+            System.out.print("Enter score for subject " + (i + 1) + ": ");
+            scores[i] = scanner.nextInt();
+            accumulatedMarks += scores[i];
+        }
+
+        double averageScore = (double) accumulatedMarks / subjectCount;
+        char grade;
+
+        if (averageScore >= 90)
+            grade = 'A';
+        else if (averageScore >= 80)
+            grade = 'B';
+        else if (averageScore >= 70)
+            grade = 'C';
+        else if (averageScore >= 60)
+            grade = 'D';
+        else
+            grade = 'F';
+
+        System.out.println("\n--- Academic Summary ---");
+        System.out.println("Total Marks: " + accumulatedMarks);
+        System.out.printf("Average Percentage: %.2f%%\n", averageScore);
+        System.out.println("Final Grade: " + grade);
+
+        scanner.close();
+    }
+}
